@@ -14,9 +14,14 @@ const FieldInput = ({
   placeholder,
 }: FieldInputProps) => {
   return (
-    <div>
-      <label htmlFor={labelFor}>{label}</label>
-      <input required={required} placeholder={placeholder}></input>
+    <div className='input-container'>
+      <label className='input-label' htmlFor={labelFor}>
+        {label}
+      </label>
+      <input
+        className='input-field'
+        required={required}
+        placeholder={placeholder}></input>
     </div>
   );
 };
