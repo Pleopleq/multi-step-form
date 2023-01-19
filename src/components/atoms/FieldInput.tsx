@@ -1,8 +1,10 @@
 type FieldInputProps = {
   label: string;
   labelFor: string;
-  required: boolean;
+  required?: boolean;
   placeholder: string;
+  color?: string;
+  focusColor?: string;
 };
 
 const FieldInput = ({
