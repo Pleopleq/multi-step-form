@@ -1,5 +1,6 @@
 :root {
   --primary-marine-blue: hsl(213, 96%, 18%);
+  --primary-marine-blue-light: hsl(213, 96%, 26%);
   --primary-purplish-blue: hsl(243, 100%, 62%);
   --primary-pastel-blue: hsl(228, 100%, 84%);
   --primary-light-blue: hsl(206, 94%, 87%);
@@ -56,4 +57,19 @@ body, html {
 
 .input-field::placeholder {
   opacity: 0.7;
+}
+
+.main-button {
+  background-color: var(--primary-marine-blue-light);
+  color: var(--neutral-white);
+  font-family: inherit;
+  padding: 10px 16px 10px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.main-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }

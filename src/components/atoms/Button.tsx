@@ -1,11 +1,11 @@
 type ButtonProps = {
-  label: string;
-  color: string;
+  children: string;
   onClick: () => void;
+  color?: string;
   disabled?: boolean;
 };
 
-const Button = ({ label, color, onClick, disabled }: ButtonProps) => {
+const Button = ({ children, color, onClick, disabled }: ButtonProps) => {
   return (
     <button
       className='main-button'
@@ -14,7 +14,7 @@ const Button = ({ label, color, onClick, disabled }: ButtonProps) => {
       }}
       disabled={disabled}
       onClick={onClick}>
-      {label}
+      {children}
     </button>
   );
 };
