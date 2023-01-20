@@ -1,19 +1,8 @@
 import FieldInput from "../atoms/FieldInput";
-import Button from "../atoms/Button";
 
-type PersonalInfoProps = {
-  title: string;
-  description: string;
-};
-
-const PersonalInfoStep = ({ title, description }: PersonalInfoProps) => {
+const PersonalInfoStep = () => {
   return (
-    <section>
-      <div>
-        <h1>{title}</h1>
-        <p>{description} </p>
-      </div>
-
+    <section className='step-container'>
       <form>
         <FieldInput
           label='Name'
@@ -39,10 +28,6 @@ const PersonalInfoStep = ({ title, description }: PersonalInfoProps) => {
           placeholder='e.g. +1 234 567 890'
           inputValue=''></FieldInput>
       </form>
-
-      <div>
-        <Button onClick={() => {}}>Next Step</Button>
-      </div>
     </section>
   );
 };

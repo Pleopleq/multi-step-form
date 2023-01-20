@@ -20,6 +20,11 @@ body, html {
   font-size: var(--font-size);
 }
 
+h1, h2, h3, h4, h5, p{
+  padding: 0;
+  margin: 0;
+}
+
 .input-container {
   display: flex;
   flex-direction: column;
@@ -72,4 +77,17 @@ body, html {
 .main-button:disabled {
   opacity: 0.7;
   cursor: not-allowed;
+}
+
+.step-title {
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+
+.step-description {
+  color: var(--neutral-cool-gray);
+}
+
+.step-info__container {
+  margin-bottom: 2rem;
 }
