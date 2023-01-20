@@ -1,0 +1,30 @@
+.stepContainer {
+    display: flex;
+    background-color: var(--primary-purplish-blue);
+    color: var(--neutral-white);
+}
+
+.stepIcon {
+    border-radius: 50%;
+    width: 18px;
+    height: 17px;
+    padding: 11px;
+    margin-right: 1rem;
+    border: 1px solid var(--neutral-white);
+    text-align: center;
+}
+
+.stepDetailsContainer {
+    display: flex;
+    flex-direction: column; 
+    align-self: center;
+}
+
+.stepDetailNumber {
+    opacity: 0.7;
+    font-size: 12px;
+}
+
+.stepDetailName {
+    font-weight: 600;
+}
