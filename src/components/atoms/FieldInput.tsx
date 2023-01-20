@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 type FieldInputProps = {
   label: string;
   labelFor: string;
+  handleInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  placeholder: string;
+  inputValue: string;
   labelColor?: string;
   required?: boolean;
-  placeholder: string;
   inputColor?: string;
   focusColor?: string;
 };
@@ -17,19 +19,16 @@ const FieldInput = ({
   placeholder,
   labelColor,
   inputColor,
+  inputValue,
+  handleInputChange,
 }: FieldInputProps) => {
   const [requiredError, setRequiredError] = useState(false);
-  const [inputValue, setInputValue] = useState("");
 
   function handleOnBlur() {
     if (inputValue === "") {
       return setRequiredError(true);
     }
     setRequiredError(false);
-  }
-
-  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setInputValue(event.target.value);
   }
 
   return (
