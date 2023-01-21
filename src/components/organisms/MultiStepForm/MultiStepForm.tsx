@@ -1,8 +1,9 @@
-import CurrentStep from "./CurrentStep";
-import PersonalInfoStep from "../molecules/PersonalInfoStep";
-import { StepProps } from "../atoms/Step/Step";
-import MultiStepListContainer from "../molecules/MultiStepListContainer";
-import MultiStepList from "../molecules/MultiStepList";
+import CurrentStep from "../CurrentStep";
+import PersonalInfoStep from "../../molecules/PersonalInfoStep";
+import { StepProps } from "../../atoms/Step/Step";
+import MultiStepListContainer from "../../molecules/MultiStepListContainer/MultiStepListContainer";
+import MultiStepList from "../../molecules/MultiStepList";
+import styles from "./multistepform.module.css";
 
 const stepList: StepProps[] = [
   {
@@ -33,7 +34,7 @@ const stepList: StepProps[] = [
 
 const MultiStepForm = () => {
   return (
-    <section>
+    <section className={styles.multiStepFormContainer}>
       <div>
         <MultiStepListContainer>
           <MultiStepList list={stepList}></MultiStepList>

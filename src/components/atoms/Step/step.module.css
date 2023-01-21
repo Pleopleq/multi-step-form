@@ -1,6 +1,5 @@
 .stepContainer {
     display: flex;
-    background-color: var(--primary-purplish-blue);
     color: var(--neutral-white);
 }
 
@@ -27,4 +26,6 @@
 
 .stepDetailName {
     font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 2rem;
 }
