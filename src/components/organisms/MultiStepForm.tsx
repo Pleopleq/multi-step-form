@@ -6,25 +6,25 @@ import MultiStepList from "../molecules/MultiStepList";
 
 const stepList: StepProps[] = [
   {
-    key: 1,
+    id: 1,
     step: "YOUR INFO",
     stepNumber: 1,
     selected: true,
   },
   {
-    key: 2,
+    id: 2,
     step: "SELECT PLAN",
     stepNumber: 2,
     selected: false,
   },
   {
-    key: 3,
+    id: 3,
     step: "ADD-ONS",
     stepNumber: 3,
     selected: false,
   },
   {
-    key: 4,
+    id: 4,
     step: "SUMMARY",
     stepNumber: 4,
     selected: false,

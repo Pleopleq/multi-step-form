@@ -10,7 +10,7 @@ const MultiStepList = ({ list }: MultiStepListProps) => {
       {list.map((step: StepProps) => {
         return (
           <Step
-            key={step.key}
+            key={step.id}
             step={step.step}
             stepNumber={step.stepNumber}></Step>
         );

@@ -4,12 +4,12 @@ export type StepProps = {
   step: string;
   stepNumber: number;
   selected?: boolean;
-  key?: number;
+  id?: number;
 };
 
-const Step = ({ step, stepNumber, key }: StepProps) => {
+const Step = ({ step, stepNumber, id }: StepProps) => {
   return (
-    <div className={styles.stepContainer} key={key}>
+    <div className={styles.stepContainer} key={id}>
       <div className={styles.stepIcon}>{stepNumber}</div>
       <div className={styles.stepDetailsContainer}>
         <span className={styles.stepDetailNumber}>STEP {stepNumber}</span>
