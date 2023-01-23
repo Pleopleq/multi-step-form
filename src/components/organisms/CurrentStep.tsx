@@ -18,7 +18,7 @@ const CurrentStepProps = ({
         <p className='step-description'>{description} </p>
       </div>
       {children}
-      <div>
+      <div className='next-step__btn'>
         <Button onClick={() => {}}>Next Step</Button>
       </div>
     </section>

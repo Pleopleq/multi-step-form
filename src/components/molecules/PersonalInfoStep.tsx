@@ -2,7 +2,7 @@ import FieldInput from "../atoms/FieldInput";
 
 const PersonalInfoStep = () => {
   return (
-    <section className='step-container'>
+    <section>
       <form>
         <FieldInput
           label='Name'

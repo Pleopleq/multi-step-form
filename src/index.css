@@ -18,13 +18,12 @@
 body, html {
   font-family: 'Overpass', sans-serif;
   font-size: var(--font-size);
-  width: 100%;
-  height: 100%;
 }
 
 h1, h2, h3, h4, h5, p{
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 .input-container {
@@ -81,6 +80,12 @@ h1, h2, h3, h4, h5, p{
   cursor: not-allowed;
 }
 
+.step-container {
+  margin-top: 2rem;
+  margin-left: 4rem;
+  margin-right: 2rem;
+}
+
 .step-title {
   font-size: 26px;
   margin-bottom: 6px;
@@ -92,4 +97,9 @@ h1, h2, h3, h4, h5, p{
 
 .step-info__container {
   margin-bottom: 2rem;
+}
+
+.next-step__btn {
+  margin-top: 9rem;
+  text-align: end;
 }

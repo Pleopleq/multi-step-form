@@ -35,18 +35,14 @@ const stepList: StepProps[] = [
 const MultiStepForm = () => {
   return (
     <section className={styles.multiStepFormContainer}>
-      <div>
-        <MultiStepListContainer>
-          <MultiStepList list={stepList}></MultiStepList>
-        </MultiStepListContainer>
-      </div>
-      <div>
-        <CurrentStep
-          title='Personal Info'
-          description='  Please provide your name, email address, and phone number.'>
-          <PersonalInfoStep></PersonalInfoStep>
-        </CurrentStep>
-      </div>
+      <MultiStepListContainer>
+        <MultiStepList list={stepList}></MultiStepList>
+      </MultiStepListContainer>
+      <CurrentStep
+        title='Personal Info'
+        description='  Please provide your name, email address, and phone number.'>
+        <PersonalInfoStep></PersonalInfoStep>
+      </CurrentStep>
     </section>
   );
 };
