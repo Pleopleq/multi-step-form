@@ -1,4 +1,5 @@
-import Step, { StepProps } from "../atoms/Step/Step";
+import Step from "../atoms/Step/Step";
+import { StepProps } from "../organisms/MultiStepForm/MultiStepForm";
 
 type MultiStepListProps = {
   list: StepProps[];
@@ -12,7 +13,8 @@ const MultiStepList = ({ list }: MultiStepListProps) => {
           <Step
             key={step.id}
             step={step.step}
-            stepNumber={step.stepNumber}></Step>
+            stepNumber={step.stepNumber}
+            selected={step.selected}></Step>
         );
       })}
     </div>

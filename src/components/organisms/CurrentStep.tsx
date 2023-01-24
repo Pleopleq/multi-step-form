@@ -1,15 +1,18 @@
+import { useEffect } from "react";
 import Button from "../atoms/Button";
 
 type CurrentStepProps = {
   title: string;
   description: string;
   children: JSX.Element;
+  handleOnClick: () => void;
 };
 
 const CurrentStepProps = ({
   title,
   description,
   children,
+  handleOnClick,
 }: CurrentStepProps) => {
   return (
     <section className='step-container'>
@@ -19,7 +22,7 @@ const CurrentStepProps = ({
       </div>
       {children}
       <div className='next-step__btn'>
-        <Button onClick={() => {}}>Next Step</Button>
+        <Button onClick={handleOnClick}>Next Step</Button>
       </div>
     </section>
   );
