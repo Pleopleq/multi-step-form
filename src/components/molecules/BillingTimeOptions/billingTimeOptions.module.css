@@ -1,0 +1,15 @@
+.billingOptionsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    border-radius: 12px;
+    background-color: var(--neutral-light-gray);
+    font-weight: 600;
+    color: var(--neutral-cool-gray);
+}
+
+.togglerContainer {
+    margin: 1.2rem 1.2rem;
+}

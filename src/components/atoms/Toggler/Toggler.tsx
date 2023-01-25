@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./toggler.module.css";
 
 type Toggler = {
-  label: string;
+  label?: string;
   toggled: boolean;
   onClick: (arg: boolean) => void;
 };

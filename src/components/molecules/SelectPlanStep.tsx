@@ -1,5 +1,7 @@
+import BillingTimeOptions from "./BillingTimeOptions/BillingTimeOptions";
+
 const SelectPlanStep = () => {
-  return <h1>Select Plan step</h1>;
+  return <BillingTimeOptions></BillingTimeOptions>;
 };
 
 export default SelectPlanStep;
