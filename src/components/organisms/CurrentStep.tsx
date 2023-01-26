@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Button from "../atoms/Button";
 
 type CurrentStepProps = {
