@@ -1,6 +1,6 @@
-type PlanDetails = {
+type PlanCardProps = {
   name: string;
-  price: string;
+  price: number;
   billingOption: string;
   icon: string;
   selected: boolean;
@@ -12,7 +12,7 @@ const PlanCard = ({
   icon,
   selected,
   billingOption,
-}: PlanDetails) => {
+}: PlanCardProps) => {
   return (
     <article>
       <div>

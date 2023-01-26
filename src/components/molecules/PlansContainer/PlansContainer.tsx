@@ -1,37 +1,27 @@
 import PlanCard from "../../atoms/PlanCard/PlanCard";
-import arcadeIcon from "../../../../assets/images/icon-arcade.svg";
-import advancedIcon from "../../../../assets/images/icon-advanced.svg";
-import proIcon from "../../../../assets/images/icon-pro.svg";
+import BillingTimeOptions from "../BillingTimeOptions/BillingTimeOptions";
+import { PlansInfo } from "../SelectPlanStep";
 
-const plansInfo = [
-  {
-    name: "arcade",
-    icon: arcadeIcon,
-    selected: true,
-    monthlyPrice: 9,
-    yearlyPrice: 90,
-  },
-  {
-    name: "advanced",
-    icon: advancedIcon,
-    selected: false,
-    monthlyPrice: 12,
-    yearlyPrice: 120,
-  },
-  {
-    name: "pro",
-    icon: proIcon,
-    selected: false,
-    monthlyPrice: 15,
-    yearlyPrice: 150,
-  },
-];
+type PlansContainerProps = {
+  plans: PlansInfo[];
+};
 
-const PlansContainer = () => {
+const PlansContainer = ({ plans }: PlansContainerProps) => {
   return (
     <section>
-      <div></div>
-      <div></div>
+      <div>
+        {plans.map((plan) => {
+          return (
+            <PlanCard
+              name={plan.name}
+              icon={plan.icon}
+              price={plan.monthlyPrice}
+              billingOption={"mo"}
+              selected={plan.selected}></PlanCard>
+          );
+        })}
+      </div>
+      <BillingTimeOptions></BillingTimeOptions>
     </section>
   );
 };
