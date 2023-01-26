@@ -13,6 +13,7 @@ const Step = ({ step, stepNumber, id, selected }: StepItemProps) => {
       <div
         style={{
           backgroundColor: selected ? "hsl(228, 100%, 84%)" : "",
+          color: selected ? "hsl(213, 96%, 10%)" : "",
         }}
         className={styles.stepIcon}>
         {stepNumber}

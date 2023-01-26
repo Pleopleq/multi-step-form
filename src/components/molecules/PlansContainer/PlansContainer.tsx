@@ -1,6 +1,7 @@
 import PlanCard from "../../atoms/PlanCard/PlanCard";
 import BillingTimeOptions from "../BillingTimeOptions/BillingTimeOptions";
 import { PlansInfo } from "../SelectPlanStep";
+import styles from "./plansContainer.module.css";
 
 type PlansContainerProps = {
   plans: PlansInfo[];
@@ -9,7 +10,7 @@ type PlansContainerProps = {
 const PlansContainer = ({ plans }: PlansContainerProps) => {
   return (
     <section>
-      <div>
+      <div className={styles.plansContainer}>
         {plans.map((plan) => {
           return (
             <PlanCard

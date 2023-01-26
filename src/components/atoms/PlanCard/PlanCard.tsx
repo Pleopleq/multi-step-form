@@ -1,3 +1,5 @@
+import styles from "./planCard.module.css";
+
 type PlanCardProps = {
   name: string;
   price: number;
@@ -14,7 +16,12 @@ const PlanCard = ({
   billingOption,
 }: PlanCardProps) => {
   return (
-    <article>
+    <article
+      style={{
+        borderColor: selected ? "hsl(243, 100%, 62%)" : "",
+        backgroundColor: selected ? "hsl(229, 24%, 91%)" : "",
+      }}
+      className={styles.cardContainer}>
       <div>
         <img src={icon} alt={name + " plan"} />
       </div>

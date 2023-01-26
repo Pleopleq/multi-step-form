@@ -1,0 +1,14 @@
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-around;
+    height: 120px;
+    padding: 1.3rem 1rem 1.3rem 1rem;
+    border: 1.5px solid var(--primary-pastel-blue);
+    border-radius: 12px;
+}
+
+.cardContainer:hover {
+    border-color: var(--primary-purplish-blue);
+}
