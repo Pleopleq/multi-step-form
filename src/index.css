@@ -81,6 +81,7 @@ h1, h2, h3, h4, h5, p{
 }
 
 .step-container {
+  width: 53%;
   margin-top: 2rem;
   margin-left: 4rem;
   margin-right: 2rem;
