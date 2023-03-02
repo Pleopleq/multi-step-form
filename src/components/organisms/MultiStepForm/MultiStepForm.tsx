@@ -66,6 +66,13 @@ const MultiStepForm = () => {
     setIndex(index + 1);
   }
 
+  function prevStep() {
+    if (index > 0) {
+      stepList[index].selected = false;
+      setIndex(index - 1);
+    }
+  }
+
   useEffect(() => {
     setCurrentStep(stepList[index]);
     stepList[index].selected = true;
@@ -79,7 +86,9 @@ const MultiStepForm = () => {
       <CurrentStep
         title={currentStep.title}
         description={currentStep.description}
-        handleOnClick={nextStep}>
+        handlePrevStep={prevStep}
+        handleNextStep={nextStep}
+        currentStep={index}>
         {currentStep.component}
       </CurrentStep>
     </section>

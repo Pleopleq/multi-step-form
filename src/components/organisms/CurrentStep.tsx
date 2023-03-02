@@ -4,14 +4,18 @@ type CurrentStepProps = {
   title: string;
   description: string;
   children: JSX.Element;
-  handleOnClick: () => void;
+  currentStep: number;
+  handlePrevStep: () => void;
+  handleNextStep: () => void;
 };
 
 const CurrentStepProps = ({
   title,
   description,
   children,
-  handleOnClick,
+  currentStep,
+  handleNextStep,
+  handlePrevStep,
 }: CurrentStepProps) => {
   return (
     <section className='step-container'>
@@ -21,7 +25,8 @@ const CurrentStepProps = ({
       </div>
       {children}
       <div className='next-step__btn'>
-        <Button onClick={handleOnClick}>Next Step</Button>
+        {currentStep > 0 ? <span onClick={handlePrevStep}>Go Back</span> : null}{" "}
+        <Button onClick={handleNextStep}>Next Step</Button>
       </div>
     </section>
   );
