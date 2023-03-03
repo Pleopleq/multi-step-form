@@ -1,4 +1,4 @@
-import PlansContainer from "./PlansContainer/PlansContainer";
+import PlansContainer from "../organisms/PlansContainer/PlansContainer";
 import arcadeIcon from "../../../assets/images/icon-arcade.svg";
 import advancedIcon from "../../../assets/images/icon-advanced.svg";
 import proIcon from "../../../assets/images/icon-pro.svg";

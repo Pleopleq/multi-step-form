@@ -1,6 +1,6 @@
 import PlanCard from "../../atoms/PlanCard/PlanCard";
-import BillingTimeOptions from "../BillingTimeOptions/BillingTimeOptions";
-import { PlansInfo } from "../SelectPlanStep";
+import BillingTimeOptions from "../../molecules/BillingTimeOptions/BillingTimeOptions";
+import { PlansInfo } from "../../molecules/SelectPlanStep";
 import styles from "./plansContainer.module.css";
 
 type PlansContainerProps = {
