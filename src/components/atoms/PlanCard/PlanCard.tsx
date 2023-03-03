@@ -6,6 +6,7 @@ type PlanCardProps = {
   billingOption: string;
   icon: string;
   selected: boolean;
+  offer: string;
 };
 
 const PlanCard = ({
@@ -14,6 +15,7 @@ const PlanCard = ({
   icon,
   selected,
   billingOption,
+  offer,
 }: PlanCardProps) => {
   return (
     <article
@@ -27,10 +29,11 @@ const PlanCard = ({
       </div>
       <div>
         <h3>{name}</h3>
-        <span>
+        <span className={styles.planCard__price}>
           ${price}/{billingOption}
         </span>
       </div>
+      <p className={styles.planCard__offer}>{offer}</p>
     </article>
   );
 };

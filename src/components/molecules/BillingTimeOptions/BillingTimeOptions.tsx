@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import Toggler from "../../atoms/Toggler/Toggler";
 import styles from "./billingTimeOptions.module.css";
 
-const BillingTimeOptions = () => {
-  const [toggled, setToggled] = useState(false);
+type BillingOptionsProps = {
+  toggled: boolean;
+  setToggled: Dispatch<SetStateAction<boolean>>;
+};
+
+const BillingTimeOptions = ({ toggled, setToggled }: BillingOptionsProps) => {
   return (
     <section className={styles.billingOptionsContainer}>
       <p

@@ -9,6 +9,18 @@
     border-radius: 12px;
 }
 
+.planCard__price {
+    color: var(--neutral-cool-gray);
+    font-size: 14px;
+}
+
+.planCard__offer {
+    color: var(--primary-marine-blue);
+    font-size: 700;
+    font-size: 12px;
+    height: 20px;
+}
+
 .cardContainer:hover {
     border-color: var(--primary-purplish-blue);
 }

@@ -4,14 +4,7 @@ import proIcon from "../../../../assets/images/icon-pro.svg";
 import PlanCard from "../../atoms/PlanCard/PlanCard";
 import BillingTimeOptions from "../../molecules/BillingTimeOptions/BillingTimeOptions";
 import styles from "./selectPlanStep.module.css";
-
-export type PlansInfo = {
-  name: string;
-  icon: string;
-  selected: boolean;
-  monthlyPrice: number;
-  yearlyPrice: number;
-};
+import { useState } from "react";
 
 const plansInfo = [
   {
@@ -38,9 +31,7 @@ const plansInfo = [
 ];
 
 const SelectPlanStep = () => {
-  function selectPlan() {
-    console.log("Selected");
-  }
+  const [toggled, setToggled] = useState(false);
 
   return (
     <section>
@@ -50,13 +41,16 @@ const SelectPlanStep = () => {
             <PlanCard
               name={plan.name}
               icon={plan.icon}
-              price={plan.monthlyPrice}
-              billingOption={"mo"}
-              selected={plan.selected}></PlanCard>
+              price={!toggled ? plan.monthlyPrice : plan.yearlyPrice}
+              billingOption={!toggled ? "mo" : "yr"}
+              selected={plan.selected}
+              offer={toggled ? "2 months free" : ""}></PlanCard>
           );
         })}
       </div>
-      <BillingTimeOptions></BillingTimeOptions>
+      <BillingTimeOptions
+        toggled={toggled}
+        setToggled={setToggled}></BillingTimeOptions>
     </section>
   );
 };
