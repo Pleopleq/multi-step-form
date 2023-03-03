@@ -1,6 +1,6 @@
 import CurrentStep from "../CurrentStep";
 import PersonalInfoStep from "../PersonalInfoStep";
-import SelectPlanStep from "../SelectPlanStep";
+import SelectPlanStep from "../SelectPlanStep/SelectPlanStep";
 import AddOnsStep from "../AddOnsStep";
 import SummaryStep from "../SummaryStep";
 import MultiStepListContainer from "../../molecules/MultiStepListContainer/MultiStepListContainer";
