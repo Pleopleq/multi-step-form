@@ -5,6 +5,7 @@ type CurrentStepProps = {
   description: string;
   children: JSX.Element;
   currentStep: number;
+  lastStep: number;
   handlePrevStep: () => void;
   handleNextStep: () => void;
 };
@@ -14,6 +15,7 @@ const CurrentStepProps = ({
   description,
   children,
   currentStep,
+  lastStep,
   handleNextStep,
   handlePrevStep,
 }: CurrentStepProps) => {
@@ -24,8 +26,15 @@ const CurrentStepProps = ({
         <p className='step-description'>{description} </p>
       </div>
       {children}
-      <div className='next-step__btn'>
-        {currentStep > 0 ? <span onClick={handlePrevStep}>Go Back</span> : null}{" "}
+      <div
+        className='next-step__btn'
+        style={{
+          alignSelf:
+            currentStep === 0 || currentStep === lastStep ? "self-end" : "",
+        }}>
+        {currentStep > 0 && currentStep !== lastStep ? (
+          <span onClick={handlePrevStep}>Go Back</span>
+        ) : null}
         <Button onClick={handleNextStep}>Next Step</Button>
       </div>
     </section>

@@ -88,6 +88,7 @@ const MultiStepForm = () => {
         description={currentStep.description}
         handlePrevStep={prevStep}
         handleNextStep={nextStep}
+        lastStep={stepList.length - 1}
         currentStep={index}>
         {currentStep.component}
       </CurrentStep>
