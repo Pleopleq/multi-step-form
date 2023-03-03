@@ -33,7 +33,9 @@ const CurrentStepProps = ({
             currentStep === 0 || currentStep === lastStep ? "self-end" : "",
         }}>
         {currentStep > 0 && currentStep !== lastStep ? (
-          <span onClick={handlePrevStep}>Go Back</span>
+          <span className='fake-link' onClick={handlePrevStep}>
+            Go Back
+          </span>
         ) : null}
         <Button onClick={handleNextStep}>Next Step</Button>
       </div>
