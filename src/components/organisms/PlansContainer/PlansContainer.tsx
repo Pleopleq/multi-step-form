@@ -1,6 +1,6 @@
 import PlanCard from "../../atoms/PlanCard/PlanCard";
 import BillingTimeOptions from "../../molecules/BillingTimeOptions/BillingTimeOptions";
-import { PlansInfo } from "../../molecules/SelectPlanStep";
+import { PlansInfo } from "../SelectPlanStep";
 import styles from "./plansContainer.module.css";
 
 type PlansContainerProps = {
@@ -8,6 +8,10 @@ type PlansContainerProps = {
 };
 
 const PlansContainer = ({ plans }: PlansContainerProps) => {
+  function selectPlan() {
+    console.log("Selected");
+  }
+
   return (
     <section>
       <div className={styles.plansContainer}>

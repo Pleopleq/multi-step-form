@@ -1,10 +1,10 @@
 import CurrentStep from "../CurrentStep";
-import PersonalInfoStep from "../../molecules/PersonalInfoStep";
-import SelectPlanStep from "../../molecules/SelectPlanStep";
-import AddOnsStep from "../../molecules/AddOnsStep";
-import SummaryStep from "../../molecules/SummaryStep";
+import PersonalInfoStep from "../PersonalInfoStep";
+import SelectPlanStep from "../SelectPlanStep";
+import AddOnsStep from "../AddOnsStep";
+import SummaryStep from "../SummaryStep";
 import MultiStepListContainer from "../../molecules/MultiStepListContainer/MultiStepListContainer";
-import MultiStepList from "../../molecules/MultiStepList";
+import MultiStepList from "../MultiStepList";
 import styles from "./multistepform.module.css";
 import { useState, useEffect } from "react";
 
