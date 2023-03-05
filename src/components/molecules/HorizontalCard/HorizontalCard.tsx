@@ -1,7 +1,7 @@
 import styles from "horizontalCard.module.css";
 import CustomCheckBox from "../../atoms/CustomCheckBox/CustomCheckBox";
 
-type AddOn = {
+type AddOnDetails = {
   title: string;
   description: string;
 };
@@ -9,7 +9,7 @@ type AddOn = {
 type HorizontalCardProps = {
   addOnName: string;
   price: string | number;
-  details: AddOn;
+  details: AddOnDetails;
   timePrice: string;
 };
 
