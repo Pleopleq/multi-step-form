@@ -2,12 +2,17 @@ import styles from "./customCheckBox.module.css";
 
 type CustomCheckBoxProps = {
   name: string;
-  checked: boolean;
+  checked?: boolean;
 };
 
 const CustomCheckBox = ({ name, checked }: CustomCheckBoxProps) => {
   return (
-    <input type='checkbox' name={name} id='custom-checkbox' checked={checked} />
+    <input
+      className={styles.customCheckbox}
+      type='checkbox'
+      name={name}
+      checked={checked}
+    />
   );
 };
 

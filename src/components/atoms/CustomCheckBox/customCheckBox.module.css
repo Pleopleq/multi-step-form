@@ -1,0 +1,5 @@
+input[type="checkbox"] {
+    accent-color: var(--primary-purplish-blue);
+    height: 20px;
+    width: 20px;
+}
