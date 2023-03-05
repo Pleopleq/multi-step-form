@@ -1,4 +1,4 @@
-import styles from "horizontalCard.module.css";
+import styles from "./horizontalCard.module.css";
 import CustomCheckBox from "../../atoms/CustomCheckBox/CustomCheckBox";
 
 type AddOnDetails = {
