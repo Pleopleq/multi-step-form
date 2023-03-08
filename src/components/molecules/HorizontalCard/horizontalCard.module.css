@@ -1,4 +1,4 @@
-.horizotalCard_container{
+.horizotalCard_container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -6,24 +6,4 @@
     width: 32rem;
     border: 1px solid var(--neutral-light-gray);
     border-radius: 12px;
-}
-
-.horizotalCard_checkbox {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    justify-content: space-around;
-}
-
-.horizotalCard_details > h3 {
-    color: var(--primary-marine-blue);
-}
-
-.horizotalCard_details > p {
-    color: var(--neutral-cool-gray);
-    font-size: 0.9em;
-}
-
-.horizontalCard_price {
-    color: var(--primary-purplish-blue);
 }

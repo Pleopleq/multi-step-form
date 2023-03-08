@@ -1,40 +1,18 @@
 import styles from "./horizontalCard.module.css";
-import CustomCheckBox from "../../atoms/CustomCheckBox/CustomCheckBox";
-
-type AddOnDetails = {
-  title: string;
-  description: string;
-};
 
 type HorizontalCardProps = {
-  addOnName: string;
-  price: string | number;
-  details: AddOnDetails;
-  timePrice: string;
+  children: React.ReactNode;
+  checked?: boolean;
 };
 
-const HorizontalCard = ({
-  addOnName,
-  price,
-  details,
-  timePrice,
-}: HorizontalCardProps) => {
+const HorizontalCard = ({ children, checked }: HorizontalCardProps) => {
   return (
-    <article className={styles.horizotalCard_container}>
-      <div className={styles.horizotalCard_checkbox}>
-        <CustomCheckBox name={addOnName}></CustomCheckBox>
-
-        <div className={styles.horizotalCard_details}>
-          <h3>{details.title}</h3>
-          <p>{details.description}</p>
-        </div>
-      </div>
-
-      <div className={styles.horizontalCard_price}>
-        <p>
-          +${price}/{timePrice}{" "}
-        </p>
-      </div>
+    <article
+      style={{
+        borderColor: checked ? "hsl(243, 100%, 62%)" : "",
+      }}
+      className={styles.horizotalCard_container}>
+      {children}
     </article>
   );
 };
