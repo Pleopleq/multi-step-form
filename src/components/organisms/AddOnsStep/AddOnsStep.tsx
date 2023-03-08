@@ -1,4 +1,5 @@
 import HorizontalCard from "../../molecules/HorizontalCard/HorizontalCard";
+import styles from "./addOnsStep.module.css";
 
 const addOns = [
   {
@@ -29,7 +30,7 @@ const addOns = [
 
 const AddOnsStep = () => {
   return (
-    <section>
+    <section className={styles.addOns_container}>
       {addOns.map((addOn) => {
         return (
           <HorizontalCard

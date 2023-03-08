@@ -23,11 +23,13 @@ const HorizontalCard = ({
     <article className={styles.horizotalCard_container}>
       <div className={styles.horizotalCard_checkbox}>
         <CustomCheckBox name={addOnName}></CustomCheckBox>
+
+        <div className={styles.horizotalCard_details}>
+          <h3>{details.title}</h3>
+          <p>{details.description}</p>
+        </div>
       </div>
-      <div className={styles.horizotalCard_details}>
-        <h3>{details.title}</h3>
-        <p>{details.description}</p>
-      </div>
+
       <div className={styles.horizontalCard_price}>
         <p>
           +${price}/{timePrice}{" "}
