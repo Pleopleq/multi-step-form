@@ -2,7 +2,7 @@ import CurrentStep from "../CurrentStep";
 import PersonalInfoStep from "../PersonalInfoStep";
 import SelectPlanStep from "../SelectPlanStep/SelectPlanStep";
 import AddOnsStep from "../AddOnsStep/AddOnsStep";
-import SummaryStep from "../SummaryStep";
+import SummaryStep from "../SummaryStep/SummaryStep";
 import MultiStepListContainer from "../../molecules/MultiStepListContainer/MultiStepListContainer";
 import MultiStepList from "../MultiStepList";
 import styles from "./multistepform.module.css";
@@ -51,7 +51,15 @@ const stepList: StepProps[] = [
     step: "SUMMARY",
     title: "Finishing up",
     description: "Double-check everything looks OK before confirming.",
-    component: <SummaryStep></SummaryStep>,
+    component: (
+      <SummaryStep
+        planLifetime='mo'
+        planType={{ name: "Arcade", price: 9 }}
+        addOns={[
+          { name: "Larger storage", price: 2 },
+          { name: "Online Service", price: 1 },
+        ]}></SummaryStep>
+    ),
     stepNumber: 4,
     selected: false,
   },

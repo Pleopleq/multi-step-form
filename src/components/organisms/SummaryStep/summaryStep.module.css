@@ -1,0 +1,10 @@
+.summaryContainer {
+    color: var(--neutral-cool-gray)
+}
+
+.summaryList {
+    height: 200px;
+    width: 100%;
+    border-radius: 12px;
+    background-color: var(--neutral-alabaster);
+}
