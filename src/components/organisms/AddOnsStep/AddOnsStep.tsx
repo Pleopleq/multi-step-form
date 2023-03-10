@@ -34,57 +34,31 @@ let addOns = [
 ];
 
 const AddOnsStep = () => {
-  const [addOnsFoo, setAddOns] = useState(addOns);
-  const [onlineService, setOnlineService] = useState(false);
-  const [largerStorage, setLargerStorage] = useState(false);
-  const [customProfile, setCustomProfile] = useState(false);
+  const [addOnsJSON, setAddOns] = useState(addOns);
+
+  function editAddOns(addOn: string) {
+    setAddOns((prevState) => {
+      return prevState.map((state) =>
+        state.addOnName === addOn
+          ? { ...state, selected: !state.selected }
+          : state
+      );
+    });
+  }
 
   function handleAddOnChecked(addOn: string) {
-    switch (addOn) {
-      case "onlineService":
-        setAddOns((prevState) => {
-          return prevState.map((state) =>
-            state.addOnName === addOn
-              ? { ...state, selected: !state.selected }
-              : state
-          );
-        });
+    const addOnOptions = {
+      onlineService: editAddOns(addOn),
+      largerStorage: editAddOns(addOn),
+      customProfile: editAddOns(addOn),
+    };
 
-        setOnlineService(!onlineService);
-        break;
-
-      case "largerStorage":
-        setAddOns((prevState) => {
-          return prevState.map((state) =>
-            state.addOnName === addOn
-              ? { ...state, selected: !state.selected }
-              : state
-          );
-        });
-
-        setLargerStorage(!largerStorage);
-        break;
-
-      case "customProfile":
-        setAddOns((prevState) => {
-          return prevState.map((state) =>
-            state.addOnName === addOn
-              ? { ...state, selected: !state.selected }
-              : state
-          );
-        });
-
-        setCustomProfile(!customProfile);
-        break;
-
-      default:
-        break;
-    }
+    return addOnOptions[addOn as keyof typeof addOnOptions];
   }
 
   return (
     <section className={styles.addOns_container}>
-      {addOnsFoo.map((addOn) => {
+      {addOnsJSON.map((addOn) => {
         return (
           <HorizontalCard key={addOn.id} checked={addOn.selected}>
             <div className={styles.horizotalCard_checkbox}>
