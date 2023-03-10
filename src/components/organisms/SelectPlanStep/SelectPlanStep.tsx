@@ -8,6 +8,7 @@ import { useState } from "react";
 
 const plansInfo = [
   {
+    id: 1,
     name: "Arcade",
     icon: arcadeIcon,
     selected: true,
@@ -15,6 +16,7 @@ const plansInfo = [
     yearlyPrice: 90,
   },
   {
+    id: 2,
     name: "Advanced",
     icon: advancedIcon,
     selected: false,
@@ -22,6 +24,7 @@ const plansInfo = [
     yearlyPrice: 120,
   },
   {
+    id: 3,
     name: "Pro",
     icon: proIcon,
     selected: false,
@@ -44,7 +47,8 @@ const SelectPlanStep = () => {
               price={!toggled ? plan.monthlyPrice : plan.yearlyPrice}
               billingOption={!toggled ? "mo" : "yr"}
               selected={plan.selected}
-              offer={toggled ? "2 months free" : ""}></PlanCard>
+              offer={toggled ? "2 months free" : ""}
+              key={plan.id}></PlanCard>
           );
         })}
       </div>
