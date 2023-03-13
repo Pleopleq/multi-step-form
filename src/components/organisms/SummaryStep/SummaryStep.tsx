@@ -29,25 +29,27 @@ const SummaryStep = ({ planType, planLifetime, addOns }: SummaryStepProps) => {
   return (
     <section className={styles.summaryContainer}>
       <div className={styles.summaryList}>
-        <div>
+        <div className={styles.planType}>
           <div>
-            <p>{planType.name}</p>
+            <p className={`${styles.bold} ${styles.summaryPrice_individual}`}>
+              {planType.name} ({planLifetime === "mo" ? "Monthly" : "Yearly"})
+            </p>
             <span role='link'>Change</span>
           </div>
 
-          <p>
+          <p className={`${styles.bold} ${styles.summaryPrice_individual}`}>
             ${planType.price}/{planLifetime}{" "}
           </p>
         </div>
 
-        <hr />
+        <div className={styles.line}></div>
 
         {addOns.map((addOn) => {
           return (
-            <div>
+            <div className={styles.addOnList_item}>
               <p>{addOn.name}</p>
 
-              <p>
+              <p className={styles.summaryPrice_individual}>
                 +${addOn.price}/{planLifetime}
               </p>
             </div>
@@ -56,8 +58,12 @@ const SummaryStep = ({ planType, planLifetime, addOns }: SummaryStepProps) => {
       </div>
 
       <div className={styles.summaryTotal}>
-        <p>Total (per month)</p>
-        <span role='totalPrice'>{totalPrice} </span>
+        <p>Total ({planLifetime === "mo" ? "per month" : "per year"})</p>
+        <span
+          role='totalPrice'
+          className={`${styles.bold} ${styles.totalPrice}`}>
+          +${totalPrice}/{planLifetime}
+        </span>
       </div>
     </section>
   );

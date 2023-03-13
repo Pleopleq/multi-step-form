@@ -1,10 +1,52 @@
+.bold {
+    font-weight: 700;
+}
+
+.line {
+    margin: 0.8rem 0 0.8rem 0;
+    width: 99%;
+    height: 1px;
+    background-color: var(--neutral-light-gray);
+}
+
 .summaryContainer {
-    color: var(--neutral-cool-gray)
+    color: var(--neutral-cool-gray);
+}
+
+.planType {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.addOnList_item {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.2rem;
 }
 
 .summaryList {
-    height: 200px;
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    padding: 1.2rem;
     border-radius: 12px;
     background-color: var(--neutral-alabaster);
+}
+
+.summaryPrice_individual {
+    color: var(--primary-marine-blue);
+}
+
+.summaryTotal {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1.2rem;
+    margin-top: 1rem;
+}
+
+.totalPrice {
+    color: var(--primary-purplish-blue);
+    font-size: 1.4em;
 }
