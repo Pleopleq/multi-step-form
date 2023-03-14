@@ -29,10 +29,9 @@ const CurrentStepProps = ({
       <div
         className='next-step__btn'
         style={{
-          alignSelf:
-            currentStep === 0 || currentStep === lastStep ? "self-end" : "",
+          alignSelf: currentStep === 0 ? "self-end" : "",
         }}>
-        {currentStep > 0 && currentStep !== lastStep ? (
+        {currentStep > 0 ? (
           <span className='fake-link' onClick={handlePrevStep}>
             Go Back
           </span>
