@@ -15,12 +15,16 @@ type SummaryStepProps = {
   planType: PlanType;
   planLifetime: string;
   addOns: AddOn[];
+  handlePlanLifeTime: () => void;
 };
 
-const SummaryStep = ({ planType, planLifetime, addOns }: SummaryStepProps) => {
+const SummaryStep = ({
+  planType,
+  planLifetime,
+  addOns,
+  handlePlanLifeTime,
+}: SummaryStepProps) => {
   const [totalPrice, setTotalPrice] = useState(0);
-
-  function handlePlanLifeTime() {}
 
   useEffect(() => {
     const totalPriceOfAddons = addOns.reduce((acc, obj) => acc + obj.price, 0);
