@@ -50,7 +50,7 @@ const SummaryStep = ({ planType, planLifetime, addOns }: SummaryStepProps) => {
 
         {addOns.map((addOn) => {
           return (
-            <div className={styles.addOnList_item}>
+            <div className={styles.addOnList_item} key={addOn.name}>
               <p>{addOn.name}</p>
 
               <p className={styles.summaryPrice_individual}>
