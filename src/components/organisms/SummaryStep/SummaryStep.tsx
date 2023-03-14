@@ -20,6 +20,8 @@ type SummaryStepProps = {
 const SummaryStep = ({ planType, planLifetime, addOns }: SummaryStepProps) => {
   const [totalPrice, setTotalPrice] = useState(0);
 
+  function handlePlanLifeTime() {}
+
   useEffect(() => {
     const totalPriceOfAddons = addOns.reduce((acc, obj) => acc + obj.price, 0);
 
@@ -34,7 +36,9 @@ const SummaryStep = ({ planType, planLifetime, addOns }: SummaryStepProps) => {
             <p className={`${styles.bold} ${styles.summaryPrice_individual}`}>
               {planType.name} ({planLifetime === "mo" ? "Monthly" : "Yearly"})
             </p>
-            <span role='link'>Change</span>
+            <span className={styles.changeLink} onClick={handlePlanLifeTime}>
+              Change
+            </span>
           </div>
 
           <p className={`${styles.bold} ${styles.summaryPrice_individual}`}>

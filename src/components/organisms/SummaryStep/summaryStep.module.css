@@ -9,6 +9,15 @@
     background-color: var(--neutral-light-gray);
 }
 
+.changeLink {
+    color: var(--primary-purplish-blue);
+    cursor: pointer;
+}
+
+.changeLink:hover {
+    border-bottom: 1px solid var(--primary-purplish-blue);
+}
+
 .summaryContainer {
     color: var(--neutral-cool-gray);
 }
