@@ -28,7 +28,6 @@
 .summaryList {
     display: flex;
     flex-direction: column;
-    width: 100%;
     padding: 1.2rem;
     border-radius: 12px;
     background-color: var(--neutral-alabaster);
@@ -41,7 +40,6 @@
 .summaryTotal {
     display: flex;
     justify-content: space-between;
-    width: 100%;
     padding: 1.2rem;
     margin-top: 1rem;
 }

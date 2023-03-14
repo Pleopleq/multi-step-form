@@ -81,6 +81,8 @@ const MultiStepForm = () => {
     }
   }
 
+  function submitForm() {}
+
   useEffect(() => {
     setCurrentStep(stepList[index]);
     stepList[index].selected = true;
@@ -96,6 +98,7 @@ const MultiStepForm = () => {
         description={currentStep.description}
         handlePrevStep={prevStep}
         handleNextStep={nextStep}
+        handleConfirm={submitForm}
         lastStep={stepList.length - 1}
         currentStep={index}>
         {currentStep.component}

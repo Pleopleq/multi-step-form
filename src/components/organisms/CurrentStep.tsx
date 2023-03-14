@@ -8,6 +8,7 @@ type CurrentStepProps = {
   lastStep: number;
   handlePrevStep: () => void;
   handleNextStep: () => void;
+  handleConfirm: () => void;
 };
 
 const CurrentStepProps = ({
@@ -18,6 +19,7 @@ const CurrentStepProps = ({
   lastStep,
   handleNextStep,
   handlePrevStep,
+  handleConfirm,
 }: CurrentStepProps) => {
   return (
     <section className='step-container'>
@@ -37,7 +39,7 @@ const CurrentStepProps = ({
           </span>
         ) : null}
         {lastStep === currentStep ? (
-          <Button onClick={() => {}} color='hsl(243, 100%, 62%)'>
+          <Button onClick={handleConfirm} color='hsl(243, 100%, 62%)'>
             Confirm
           </Button>
         ) : (
