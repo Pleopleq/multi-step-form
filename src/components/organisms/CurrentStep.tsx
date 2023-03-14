@@ -36,7 +36,13 @@ const CurrentStepProps = ({
             Go Back
           </span>
         ) : null}
-        <Button onClick={handleNextStep}>Next Step</Button>
+        {lastStep === currentStep ? (
+          <Button onClick={() => {}} color='hsl(243, 100%, 62%)'>
+            Confirm
+          </Button>
+        ) : (
+          <Button onClick={handleNextStep}>Next Step</Button>
+        )}
       </div>
     </section>
   );
