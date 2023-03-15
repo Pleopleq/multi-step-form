@@ -53,6 +53,9 @@ const stepList: StepProps[] = [
 ];
 
 const MultiStepForm = () => {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [index, setIndex] = useState(0);
   const [currentStep, setCurrentStep] = useState(stepList[index]);
 
@@ -75,6 +78,39 @@ const MultiStepForm = () => {
 
   function submitForm() {}
 
+  function renderCurrentStep(): JSX.Element {
+    switch (index + 1) {
+      case 1:
+        return (
+          <PersonalInfoStep
+            setName={setName}
+            setEmail={setEmail}
+            setPhone={setPhone}
+            name={name}
+            phone={phone}
+            email={email}
+          />
+        );
+      case 2:
+        return <SelectPlanStep />;
+      case 3:
+        return <AddOnsStep></AddOnsStep>;
+      case 4:
+        return (
+          <SummaryStep
+            planLifetime='mo'
+            planType={{ name: "Arcade", price: 9 }}
+            addOns={[
+              { name: "Larger storage", price: 2 },
+              { name: "Online Service", price: 1 },
+            ]}
+            handlePlanLifeTime={handlePlanChange}></SummaryStep>
+        );
+      default:
+        return <></>;
+    }
+  }
+
   useEffect(() => {
     setCurrentStep(stepList[index]);
     stepList[index].selected = true;
@@ -93,7 +129,7 @@ const MultiStepForm = () => {
         handleConfirm={submitForm}
         lastStep={stepList.length - 1}
         currentStep={index}>
-        {<></>}
+        <>{renderCurrentStep()}</>
       </CurrentStep>
     </section>
   );

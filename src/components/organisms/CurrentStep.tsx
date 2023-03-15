@@ -3,7 +3,7 @@ import Button from "../atoms/Button";
 type CurrentStepProps = {
   title: string;
   description: string;
-  children: JSX.Element;
+  children: JSX.Element | undefined;
   currentStep: number;
   lastStep: number;
   handlePrevStep: () => void;
