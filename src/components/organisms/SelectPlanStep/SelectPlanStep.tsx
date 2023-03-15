@@ -35,6 +35,25 @@ const plansInfo = [
 
 const SelectPlanStep = () => {
   const [toggled, setToggled] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState(
+    plansInfo.find((plan) => plan.selected === true)
+  );
+
+  function handleSelectedPlan(plan: any) {
+    if (selectedPlan?.id === plan.id) {
+      return;
+    }
+
+    setSelectedPlan((prevState) => {
+      if (prevState != undefined) {
+        prevState.selected = false;
+      }
+      return prevState;
+    });
+
+    plan.selected = true;
+    setSelectedPlan(plan);
+  }
 
   return (
     <section>
@@ -48,7 +67,8 @@ const SelectPlanStep = () => {
               billingOption={!toggled ? "mo" : "yr"}
               selected={plan.selected}
               offer={toggled ? "2 months free" : ""}
-              key={plan.id}></PlanCard>
+              key={plan.id}
+              onClick={() => handleSelectedPlan(plan)}></PlanCard>
           );
         })}
       </div>

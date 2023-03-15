@@ -7,6 +7,7 @@ type PlanCardProps = {
   icon: string;
   selected: boolean;
   offer: string;
+  onClick: () => void;
 };
 
 const PlanCard = ({
@@ -16,6 +17,7 @@ const PlanCard = ({
   selected,
   billingOption,
   offer,
+  onClick,
 }: PlanCardProps) => {
   return (
     <article
@@ -23,7 +25,8 @@ const PlanCard = ({
         borderColor: selected ? "hsl(243, 100%, 62%)" : "",
         backgroundColor: selected ? "hsl(229, 24%, 91%)" : "",
       }}
-      className={styles.cardContainer}>
+      className={styles.cardContainer}
+      onClick={onClick}>
       <div>
         <img src={icon} alt={name + " plan"} />
       </div>
