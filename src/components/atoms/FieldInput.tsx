@@ -3,7 +3,7 @@ import { ChangeEvent, useState } from "react";
 type FieldInputProps = {
   label: string;
   labelFor: string;
-  handleInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleInputChange: (string: string) => void;
   placeholder: string;
   inputValue: string;
   labelColor?: string;
@@ -56,7 +56,9 @@ const FieldInput = ({
         className='input-field'
         required={required}
         placeholder={placeholder}
-        onChange={handleInputChange}
+        onChange={(ev: React.ChangeEvent<HTMLInputElement>) => {
+          handleInputChange(ev.target.value);
+        }}
         value={inputValue}
         onFocus={() => setRequiredError(false)}
         onBlur={handleOnBlur}
