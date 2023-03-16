@@ -57,6 +57,8 @@ const MultiStepForm = () => {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [index, setIndex] = useState(0);
+  const [planType, setPlanType] = useState("");
+  const [planTime, setPlanTime] = useState(false);
   const [currentStep, setCurrentStep] = useState(stepList[index]);
 
   function nextStep() {
@@ -92,7 +94,13 @@ const MultiStepForm = () => {
           />
         );
       case 2:
-        return <SelectPlanStep />;
+        return (
+          <SelectPlanStep
+            setPlanType={setPlanType}
+            setPlanTime={setPlanTime}
+            planTime={planTime}
+          />
+        );
       case 3:
         return <AddOnsStep></AddOnsStep>;
       case 4:

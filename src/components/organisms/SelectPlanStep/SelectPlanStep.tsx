@@ -4,7 +4,13 @@ import proIcon from "../../../../assets/images/icon-pro.svg";
 import PlanCard from "../../atoms/PlanCard/PlanCard";
 import BillingTimeOptions from "../../molecules/BillingTimeOptions/BillingTimeOptions";
 import styles from "./selectPlanStep.module.css";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
+
+type SelectPlanProps = {
+  setPlanTime: Dispatch<SetStateAction<boolean>>;
+  setPlanType: Dispatch<SetStateAction<string>>;
+  planTime: boolean;
+};
 
 const plansInfo = [
   {
@@ -33,8 +39,11 @@ const plansInfo = [
   },
 ];
 
-const SelectPlanStep = () => {
-  const [toggled, setToggled] = useState(false);
+const SelectPlanStep = ({
+  setPlanTime,
+  setPlanType,
+  planTime,
+}: SelectPlanProps) => {
   const [selectedPlan, setSelectedPlan] = useState(
     plansInfo.find((plan) => plan.selected === true)
   );
@@ -63,18 +72,18 @@ const SelectPlanStep = () => {
             <PlanCard
               name={plan.name}
               icon={plan.icon}
-              price={!toggled ? plan.monthlyPrice : plan.yearlyPrice}
-              billingOption={!toggled ? "mo" : "yr"}
+              price={!planTime ? plan.monthlyPrice : plan.yearlyPrice}
+              billingOption={!planTime ? "mo" : "yr"}
               selected={plan.selected}
-              offer={toggled ? "2 months free" : ""}
+              offer={planTime ? "2 months free" : ""}
               key={plan.id}
               onClick={() => handleSelectedPlan(plan)}></PlanCard>
           );
         })}
       </div>
       <BillingTimeOptions
-        toggled={toggled}
-        setToggled={setToggled}></BillingTimeOptions>
+        toggled={planTime}
+        setToggled={setPlanTime}></BillingTimeOptions>
     </section>
   );
 };
