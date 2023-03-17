@@ -7,6 +7,7 @@ import MultiStepListContainer from "../../molecules/MultiStepListContainer/Multi
 import MultiStepList from "../MultiStepList";
 import styles from "./multistepform.module.css";
 import { useState, useEffect } from "react";
+import addOns from "../../../JSON/addOns.json";
 
 export type StepProps = {
   step: string;
@@ -15,6 +16,16 @@ export type StepProps = {
   title: string;
   description: string;
   id?: number;
+};
+
+export type AddOn = {
+  id: number;
+  addOnName: string;
+  addOnTitle: string;
+  addOnDescription: string;
+  monthlyPrice: number;
+  yearlyPrice: number;
+  selected: boolean;
 };
 
 const stepList: StepProps[] = [
@@ -59,6 +70,7 @@ const MultiStepForm = () => {
   const [index, setIndex] = useState(0);
   const [planType, setPlanType] = useState("");
   const [planTime, setPlanTime] = useState(false);
+  const [addOns, setAddOns] = useState<AddOn[]>([]);
   const [currentStep, setCurrentStep] = useState(stepList[index]);
 
   function nextStep() {
@@ -102,7 +114,11 @@ const MultiStepForm = () => {
           />
         );
       case 3:
-        return <AddOnsStep></AddOnsStep>;
+        return (
+          <AddOnsStep
+            setAddons={setAddOns}
+            addOnsSelected={addOns}></AddOnsStep>
+        );
       case 4:
         return (
           <SummaryStep

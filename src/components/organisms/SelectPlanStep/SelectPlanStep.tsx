@@ -61,6 +61,7 @@ const SelectPlanStep = ({
     });
 
     plan.selected = true;
+    setPlanType(plan);
     setSelectedPlan(plan);
   }
 

@@ -1,70 +1,45 @@
 import HorizontalCard from "../../molecules/HorizontalCard/HorizontalCard";
 import CustomCheckBox from "../../atoms/CustomCheckBox/CustomCheckBox";
 import styles from "./addOnsStep.module.css";
-import { useState } from "react";
+import addOns from "../../../JSON/addOns.json";
+import { AddOn } from "../MultiStepForm/MultiStepForm";
 
-let addOns = [
-  {
-    id: 1,
-    addOnName: "onlineService",
-    addOnTitle: "Online service",
-    addOnDescription: "Access to multiplayer games",
-    monthlyPrice: 1,
-    yearlyPrice: 10,
-    selected: false,
-  },
-  {
-    id: 2,
-    addOnName: "largerStorage",
-    addOnTitle: "Larger storage",
-    addOnDescription: "Extra 1TB of cloud save",
-    monthlyPrice: 2,
-    yearlyPrice: 20,
-    selected: false,
-  },
-  {
-    id: 3,
-    addOnName: "customProfile",
-    addOnTitle: "Customizable Profile",
-    addOnDescription: "Custom theme on your profile",
-    monthlyPrice: 2,
-    yearlyPrice: 20,
-    selected: false,
-  },
-];
+type AddOnsProps = {
+  setAddons: React.Dispatch<React.SetStateAction<AddOn[]>>;
+  addOnsSelected: AddOn[];
+};
 
-const AddOnsStep = () => {
-  const [addOnsJSON, setAddOns] = useState(addOns);
+const AddOnsStep = ({ setAddons, addOnsSelected }: AddOnsProps) => {
+  function editAddOns(addOn: AddOn) {
+    let found = addOnsSelected.find((v) => v.id === addOn.id);
 
-  function editAddOns(addOn: string) {
-    setAddOns((prevState) => {
-      return prevState.map((state) =>
-        state.addOnName === addOn
-          ? { ...state, selected: !state.selected }
-          : state
-      );
-    });
-  }
+    if (found) {
+      addOn.selected = false;
+      setAddons((prevState) => {
+        let index = prevState.findIndex((state) => state.id === found?.id);
 
-  function handleAddOnChecked(addOn: string) {
-    const addOnOptions = {
-      onlineService: editAddOns(addOn),
-      largerStorage: editAddOns(addOn),
-      customProfile: editAddOns(addOn),
-    };
+        return [...prevState.slice(0, index), ...prevState.slice(index + 1)];
+      });
+    }
 
-    return addOnOptions[addOn as keyof typeof addOnOptions];
+    if (!found) {
+      addOn.selected = true;
+      setAddons((prevState) => {
+        return prevState.concat(addOn);
+      });
+    }
   }
 
   return (
     <section className={styles.addOns_container}>
-      {addOnsJSON.map((addOn) => {
+      {addOns.map((addOn) => {
         return (
           <HorizontalCard key={addOn.id} checked={addOn.selected}>
             <div className={styles.horizotalCard_checkbox}>
               <CustomCheckBox
                 name={addOn.addOnName}
-                onChecked={handleAddOnChecked}></CustomCheckBox>
+                onChecked={() => editAddOns(addOn)}
+                checked={addOn.selected}></CustomCheckBox>
 
               <div className={styles.horizotalCard_details}>
                 <h3>{addOn.addOnTitle}</h3>

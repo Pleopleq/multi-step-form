@@ -1,9 +1,10 @@
+import { ChangeEventHandler } from "react";
 import styles from "./customCheckBox.module.css";
 
 type CustomCheckBoxProps = {
   name: string;
   checked?: boolean;
-  onChecked: (string: string) => void;
+  onChecked: ChangeEventHandler<HTMLInputElement>;
 };
 
 const CustomCheckBox = ({ name, checked, onChecked }: CustomCheckBoxProps) => {
@@ -13,7 +14,7 @@ const CustomCheckBox = ({ name, checked, onChecked }: CustomCheckBoxProps) => {
       type='checkbox'
       name={name}
       checked={checked}
-      onChange={() => onChecked(name)}
+      onChange={onChecked}
     />
   );
 };
