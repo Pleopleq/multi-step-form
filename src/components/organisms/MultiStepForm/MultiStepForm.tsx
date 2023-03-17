@@ -28,6 +28,15 @@ export type AddOn = {
   selected: boolean;
 };
 
+export type Plan = {
+  id: number;
+  name: string;
+  icon: string;
+  selected: boolean;
+  monthlyPrice: number;
+  yearlyPrice: number;
+};
+
 const stepList: StepProps[] = [
   {
     id: 1,
@@ -68,7 +77,7 @@ const MultiStepForm = () => {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [index, setIndex] = useState(0);
-  const [planType, setPlanType] = useState("");
+  const [planType, setPlanType] = useState<Plan>();
   const [planTime, setPlanTime] = useState(false);
   const [addOns, setAddOns] = useState<AddOn[]>([]);
   const [currentStep, setCurrentStep] = useState(stepList[index]);
@@ -123,12 +132,17 @@ const MultiStepForm = () => {
       case 4:
         return (
           <SummaryStep
-            planLifetime='mo'
-            planType={{ name: "Arcade", price: 9 }}
-            addOns={[
-              { name: "Larger storage", price: 2 },
-              { name: "Online Service", price: 1 },
-            ]}
+            planLifetime={planTime ? "yr" : "mo"}
+            planType={{
+              name: planType?.name,
+              price: planTime ? planType?.yearlyPrice : planType?.monthlyPrice,
+            }}
+            addOns={addOns.map((addOn) => {
+              return {
+                name: addOn.addOnTitle,
+                price: planTime ? addOn.yearlyPrice : addOn.monthlyPrice,
+              };
+            })}
             handlePlanLifeTime={handlePlanChange}></SummaryStep>
         );
       default:

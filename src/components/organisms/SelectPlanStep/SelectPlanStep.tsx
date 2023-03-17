@@ -4,11 +4,12 @@ import proIcon from "../../../../assets/images/icon-pro.svg";
 import PlanCard from "../../atoms/PlanCard/PlanCard";
 import BillingTimeOptions from "../../molecules/BillingTimeOptions/BillingTimeOptions";
 import styles from "./selectPlanStep.module.css";
+import { Plan } from "../MultiStepForm/MultiStepForm";
 import { Dispatch, SetStateAction, useState } from "react";
 
 type SelectPlanProps = {
   setPlanTime: Dispatch<SetStateAction<boolean>>;
-  setPlanType: Dispatch<SetStateAction<string>>;
+  setPlanType: Dispatch<SetStateAction<Plan | undefined>>;
   planTime: boolean;
 };
 
@@ -48,7 +49,7 @@ const SelectPlanStep = ({
     plansInfo.find((plan) => plan.selected === true)
   );
 
-  function handleSelectedPlan(plan: any) {
+  function handleSelectedPlan(plan: Plan) {
     if (selectedPlan?.id === plan.id) {
       return;
     }
@@ -61,6 +62,7 @@ const SelectPlanStep = ({
     });
 
     plan.selected = true;
+
     setPlanType(plan);
     setSelectedPlan(plan);
   }

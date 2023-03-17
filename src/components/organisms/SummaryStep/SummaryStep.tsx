@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import styles from "./summaryStep.module.css";
 
 type PlanType = {
-  name: string;
-  price: number;
+  name: string | undefined;
+  price: number | undefined;
 };
 
 type AddOn = {
@@ -29,7 +29,9 @@ const SummaryStep = ({
   useEffect(() => {
     const totalPriceOfAddons = addOns.reduce((acc, obj) => acc + obj.price, 0);
 
-    setTotalPrice(planType.price + totalPriceOfAddons);
+    if (planType.price) {
+      setTotalPrice(planType.price + totalPriceOfAddons);
+    }
   }, [planType.price, addOns]);
 
   return (
