@@ -117,7 +117,8 @@ const MultiStepForm = () => {
         return (
           <AddOnsStep
             setAddons={setAddOns}
-            addOnsSelected={addOns}></AddOnsStep>
+            addOnsSelected={addOns}
+            planTime={planTime}></AddOnsStep>
         );
       case 4:
         return (

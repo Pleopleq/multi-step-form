@@ -7,9 +7,10 @@ import { AddOn } from "../MultiStepForm/MultiStepForm";
 type AddOnsProps = {
   setAddons: React.Dispatch<React.SetStateAction<AddOn[]>>;
   addOnsSelected: AddOn[];
+  planTime: boolean;
 };
 
-const AddOnsStep = ({ setAddons, addOnsSelected }: AddOnsProps) => {
+const AddOnsStep = ({ setAddons, addOnsSelected, planTime }: AddOnsProps) => {
   function editAddOns(addOn: AddOn) {
     let found = addOnsSelected.find((v) => v.id === addOn.id);
 
@@ -49,7 +50,8 @@ const AddOnsStep = ({ setAddons, addOnsSelected }: AddOnsProps) => {
 
             <div className={styles.horizontalCard_price}>
               <p>
-                +${addOn.monthlyPrice}/{"mo"}{" "}
+                +${planTime ? addOn.yearlyPrice : addOn.monthlyPrice}/
+                {planTime ? "yr" : "mo"}
               </p>
             </div>
           </HorizontalCard>
