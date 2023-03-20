@@ -9,7 +9,7 @@ import { Dispatch, SetStateAction, useState } from "react";
 
 type SelectPlanProps = {
   setPlanTime: Dispatch<SetStateAction<boolean>>;
-  setPlanType: Dispatch<SetStateAction<Plan | undefined>>;
+  setPlanType: Dispatch<SetStateAction<Plan>>;
   planTime: boolean;
 };
 

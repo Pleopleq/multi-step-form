@@ -36,6 +36,15 @@ export type Plan = {
   yearlyPrice: number;
 };
 
+const defaultPlanState = {
+  id: 1,
+  name: "Arcade",
+  icon: "asdf",
+  selected: true,
+  monthlyPrice: 9,
+  yearlyPrice: 90,
+};
+
 const stepList: StepProps[] = [
   {
     id: 1,
@@ -76,7 +85,7 @@ const MultiStepForm = () => {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [index, setIndex] = useState(0);
-  const [planType, setPlanType] = useState<Plan>();
+  const [planType, setPlanType] = useState<Plan>(defaultPlanState);
   const [planTime, setPlanTime] = useState(false);
   const [addOns, setAddOns] = useState<AddOn[]>([]);
   const [currentStep, setCurrentStep] = useState(stepList[index]);
