@@ -1,0 +1,19 @@
+.thankYouContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+
+.thankYouTitle {
+    font-size: 2em;
+    color: var(--primary-marine-blue);
+    margin-top: 1rem;
+}
+
+.thankYouPhrase {
+    text-align: center;
+    width: 61%;
+    margin-top: 1rem;
+}
