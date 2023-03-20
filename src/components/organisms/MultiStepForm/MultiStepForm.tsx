@@ -4,6 +4,7 @@ import SelectPlanStep from "../SelectPlanStep/SelectPlanStep";
 import AddOnsStep from "../AddOnsStep/AddOnsStep";
 import SummaryStep from "../SummaryStep/SummaryStep";
 import MultiStepListContainer from "../../molecules/MultiStepListContainer/MultiStepListContainer";
+import ThankYouScreen from "../../molecules/ThankYouScreen/ThankYouScreen";
 import MultiStepList from "../MultiStepList";
 import styles from "./multistepform.module.css";
 import { useState, useEffect } from "react";
@@ -89,6 +90,7 @@ const MultiStepForm = () => {
   const [planTime, setPlanTime] = useState(false);
   const [addOns, setAddOns] = useState<AddOn[]>([]);
   const [currentStep, setCurrentStep] = useState(stepList[index]);
+  const [submitData, setSubmitData] = useState(false);
 
   function nextStep() {
     stepList[index].selected = false;
@@ -107,7 +109,9 @@ const MultiStepForm = () => {
     }
   }
 
-  function submitForm() {}
+  function submitForm() {
+    setSubmitData(true);
+  }
 
   function renderCurrentStep(): JSX.Element {
     switch (index + 1) {
@@ -168,16 +172,20 @@ const MultiStepForm = () => {
       <MultiStepListContainer>
         <MultiStepList list={stepList}></MultiStepList>
       </MultiStepListContainer>
-      <CurrentStep
-        title={currentStep.title}
-        description={currentStep.description}
-        handlePrevStep={prevStep}
-        handleNextStep={nextStep}
-        handleConfirm={submitForm}
-        lastStep={stepList.length - 1}
-        currentStep={index}>
-        <>{renderCurrentStep()}</>
-      </CurrentStep>
+      {submitData ? (
+        <ThankYouScreen></ThankYouScreen>
+      ) : (
+        <CurrentStep
+          title={currentStep.title}
+          description={currentStep.description}
+          handlePrevStep={prevStep}
+          handleNextStep={nextStep}
+          handleConfirm={submitForm}
+          lastStep={stepList.length - 1}
+          currentStep={index}>
+          <>{renderCurrentStep()}</>
+        </CurrentStep>
+      )}
     </section>
   );
 };
