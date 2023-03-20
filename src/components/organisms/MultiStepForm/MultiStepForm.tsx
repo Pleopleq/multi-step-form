@@ -7,7 +7,6 @@ import MultiStepListContainer from "../../molecules/MultiStepListContainer/Multi
 import MultiStepList from "../MultiStepList";
 import styles from "./multistepform.module.css";
 import { useState, useEffect } from "react";
-import addOns from "../../../JSON/addOns.json";
 
 export type StepProps = {
   step: string;
